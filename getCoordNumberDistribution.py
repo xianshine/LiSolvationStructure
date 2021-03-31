@@ -1,8 +1,11 @@
 #!/usr/bin/python
 #--------------------------------------------------------------------------------------------
 # code used to analyze solvation environment of lithium ion in different electrolytes
-# for the paper "A single-salt-single-solvent low-concentration electrolyte with special \
-# Li-F solvation enabling practical lithium-metal batteries"
+# for the paper 
+# Molecular design for electrolyte solvents enabling energy-dense and long-cycling lithium metal batteries
+# Zhiao, Yu; Hansen, Wang; Xian, Kong; William, Huang; Yuchi, Tsao; David G., Mackanic; Kecheng, Wang; Xinchang, Wang; Wenxiao, Huang; Snehashis, Choudhury; Yu, Zheng; Chibueze V., Amanchukwu; Samantha T., Hung; Yuting, Ma; Eder G., Lomeli; Jian, Qin; Yi, Cui; Zhenan, Bao
+# Nature Energy, 2020, 5(7): 526-533.
+# DOI: 10.1038/s41560-020-0634-5
 # the default trajectory and MD setting are rdf.xtc and rdf.tpr, respectively
 # For questions, reach Xian Kong at xianshine@gmail.com
 #--------------------------------------------------------------------------------------------

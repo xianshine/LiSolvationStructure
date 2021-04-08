@@ -111,6 +111,13 @@ rcuts=3.0*np.ones(nsols)
 #   iMin=np.argmin(rdfLiO[iMax:int(0.6/dr),1])
 #   rcuts[isol]=10*rdfLiO[iMax+iMin,0]
 
+#--------------------------------------------------------------
+# Note: For results in the paper, we choose the minimum of all the rcuts 
+# in above line as the cut-off for determining first solvation shell
+# This can be done by adding this line:
+# rcuts[0:]=np.amin(rcuts[0:])
+#--------------------------------------------------------------
+
 print(rcuts)
 
 u = mda.Universe("rdf.tpr", "rdf.xtc", in_memory=False)
@@ -136,6 +143,9 @@ for ts in u.trajectory[int(beg/dt):]:
          for isol in range(0,nsols):
             si=sols[isol]
             #solAtms = u.select_atoms("resname {0:5s} and name OC OE N3 NBT B Cl1 P  I and around {1:8.3f} group li1".format(si,rcuts[isol]),li1=agLi1)
+            # For the results in the paper, we didn't consider the situtation of binding by F atoms. Later we found that it is necessary to include F atoms in FDMB
+            #solAtms = u.select_atoms("resname {0:5s} and (not name C* B* P* H* S* F*) and around {1:8.3f} group li1".format(si,rcuts[isol]),li1=agLi1)
+            # This is for considering the binding with F atoms in FDMB
             solAtms = u.select_atoms("resname {0:5s} and (not name C* B* P* H* S*) and around {1:8.3f} group li1".format(si,rcuts[isol]),li1=agLi1)
             solRes = solAtms.residues
             resIDSol = solRes.resids
